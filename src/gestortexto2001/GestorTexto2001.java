@@ -5,6 +5,8 @@
  */
 package gestortexto2001;
 
+import gestortexto2001.model.FuncionesTexto;
+
 /**
  *
  * @author dmance
@@ -16,6 +18,9 @@ public class GestorTexto2001 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String frase = "El murcielargo come bayas";
+        System.out.println(FuncionesTexto.modifyText(frase, "come", "caga"));
+        System.out.println(FuncionesTexto.eraseWord(frase, "come"));
     }
     
 }
