@@ -5,6 +5,8 @@
  */
 package gestortexto2001;
 
+import gestortexto2001.model.FuncionesTexto;
+
 /**
  *
  * @author dmance
@@ -16,6 +18,10 @@ public class GestorTexto2001 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String text="El vicky es una persona muy inteligente";
+        String original="mu";
+        String word="poco";
+        System.out.println(FuncionesTexto.modifyText(text, original, word));
     }
     
 }

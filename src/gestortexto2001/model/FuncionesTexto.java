@@ -11,16 +11,23 @@ package gestortexto2001.model;
  */
 public class FuncionesTexto {
     
-    public static boolean search(String word)
+    public static boolean search(String text, String word)
     {
         
         return false;
     }
     
-    public static String modifyText(String text, String word)
+    public static String modifyText(String text, String original, String word)
     {
-        StringBuilder sb = new StringBuilder();
-        
+        StringBuilder sb = new StringBuilder(text);
+        if(sb.indexOf(original)==-1){
+            return "-1";
+        }
+        else{
+            int iniciParaula=sb.indexOf(original);
+            int finalParaula= iniciParaula+original.length();
+            sb.replace(iniciParaula, finalParaula, word);
+        }
         return sb.toString();
     }
     
