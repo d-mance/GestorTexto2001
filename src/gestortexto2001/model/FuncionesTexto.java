@@ -17,8 +17,16 @@ public class FuncionesTexto {
             return false;
         } else {
             char t1,t2;
-            t1= text.charAt(pos-1);
-            t2 = text.charAt(pos + word.length());
+            try{
+                t1= text.charAt(pos-1);
+            }catch(StringIndexOutOfBoundsException e){
+                t1=' ';
+            }
+            try{
+                t2 = text.charAt(pos + word.length());
+            }catch(StringIndexOutOfBoundsException e){
+                t2=' ';
+            }
             return !(Character.isLetter(t1) || Character.isLetter(t2));  
             
         }
