@@ -16,42 +16,50 @@ public class FuncionesTexto {
         if (pos == -1) {
             return false;
         } else {
-            char t1,t2;
-            t1= text.charAt(pos-1);
-            t2 = text.charAt(pos + word.length());
-            if(Character.isLetter(t1) || Character.isLetter(t2))
-            {
+            char t1 = ' ', t2 = ' ';
+            try {
+                t1 = text.charAt(pos - 1);
+                t2 = text.charAt(pos + word.length());
+            } catch (StringIndexOutOfBoundsException e) {
+
+            }
+            if (Character.isLetter(t1) || Character.isLetter(t2)) {
                 return false;
-            }else
-            {
+            } else {
                 return true;
             }
-            
-            
         }
-
     }
-    public static String modifyText(String text, String original, String word ) {
-        
-        if(search(text,original))
-        {
+
+    public static String modifyText(String text, String original, String word) {
+
+        if (search(text, original)) {
             return text.replaceAll(original, word);
-        }else
-        {
+        } else {
             return "-1";
         }
-        
+
     }
 
     public static String eraseWord(String text, String word) {
-        if(search(text,word))
-        {
-            return text.replaceAll(word, "");
-        }else
-        {
+        if (search(text, word)) {
+            int pos = text.indexOf(word);
+            char previo='a';
+            try {
+                previo = text.charAt(pos - 1);
+            } catch (StringIndexOutOfBoundsException e) {
+                word = word + " ";
+            }
+
+            if (Character.isWhitespace(previo)) {
+                word = " " + word;
+            }
+            String frase = text.replaceAll(word, "");
+
+            return frase;
+        } else {
             return "-1";
         }
 
-        
     }
 }
