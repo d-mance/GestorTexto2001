@@ -18,10 +18,10 @@ public class GestorTexto2001 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String text="El vicky es una persona muy inteligente";
-        String original="mu";
-        String word="poco";
-        System.out.println(FuncionesTexto.modifyText(text, original, word));
+        String frase = "El murcielargo come bayas";
+        System.out.println(FuncionesTexto.modifyText(frase, "come", "caga"));
+        System.out.println(FuncionesTexto.eraseWord(frase, "come"));
+
     }
     
 }
