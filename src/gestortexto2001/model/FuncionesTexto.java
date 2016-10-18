@@ -7,10 +7,20 @@ package gestortexto2001.model;
 
 /**
  *
- * @author dmance
+ * @author dmance & jaldazabal
+ * @description a simple text modifier
+ * @version 1.0
+ * 
  */
 public class FuncionesTexto {
 
+    /**
+     * A method returning if a word is in a string
+     * @param text the full string
+     * @param word the word to find in the text
+     * @return true if word is found, false if otherwise
+     */
+    
     public static boolean search(String text, String word) {
         int pos = text.indexOf(word);
         if (pos == -1) {
@@ -31,6 +41,13 @@ public class FuncionesTexto {
         }
     }
 
+    /**
+     * A method for substitute a word in a string
+     * @param text the original string
+     * @param original the word to substitute
+     * @param word the word you want to change
+     * @return A string with the string changed if success or a string with "-1" otherwise
+     */
     public static String modifyText(String text, String original, String word) {
 
         if (search(text, original)) {
@@ -40,7 +57,12 @@ public class FuncionesTexto {
         }
 
     }
-
+/**
+ * A method for remove a word in a given string
+ * @param text the full string
+ * @param word the word to remove
+ * @return a string with the word removed if success or a string with "-1" otherwise
+ */
     public static String eraseWord(String text, String word) {
         if (search(text, word)) {
             int pos = text.indexOf(word);
