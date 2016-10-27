@@ -53,22 +53,22 @@ public class GestorTexto2001Test {
     
     @Before
     public void before(){
-        texto= new FuncionesTexto();
+        texto= new FuncionesTexto(this.text);
     }
     
     @Test
     public void searchTest(){
-        assertEquals(expectedSearch,texto.search(text, originalWord));
+        assertEquals(expectedSearch,texto.search( originalWord));
     }
     
     @Test
     public void modifyTextTest(){
-        assertEquals(expectedModifyText,texto.modifyText(text, originalWord, word));
+        assertEquals(expectedModifyText,texto.modifyText(originalWord, word));
     }
     
     @Test
     public void eraseWordTest(){
-        assertEquals(expectedEraseWord,texto.eraseWord(text, originalWord));
+        assertEquals(expectedEraseWord,texto.eraseWord(originalWord));
     }
     
 }

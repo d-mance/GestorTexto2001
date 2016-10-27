@@ -14,14 +14,24 @@ package gestortexto2001.model;
  */
 public class FuncionesTexto {
 
+    
+    private String text;
+
+    public FuncionesTexto(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+    
+    
     /**
      * A method returning if a word is in a string
-     * @param text the full string
      * @param word the word to find in the text
      * @return true if word is found, false if otherwise
      */
-    
-    public static boolean search(String text, String word) {
+    public boolean search( String word) {
         int pos = text.indexOf(word);
         if (pos == -1) {
             return false;
@@ -33,25 +43,21 @@ public class FuncionesTexto {
             } catch (StringIndexOutOfBoundsException e) {
 
             }
-            if (Character.isLetter(t1) || Character.isLetter(t2)) {
-                return false;
-            } else {
-                return true;
-            }
+            return !(Character.isLetter(t1) || Character.isLetter(t2));
         }
     }
 
     /**
      * A method for substitute a word in a string
-     * @param text the original string
      * @param original the word to substitute
      * @param word the word you want to change
      * @return A string with the string changed if success or a string with "-1" otherwise
      */
-    public static String modifyText(String text, String original, String word) {
+    public String modifyText( String original, String word) {
 
-        if (search(text, original)) {
-            return text.replaceAll(original, word);
+        if (this.search(original)) {
+           this.text = this.text.replaceAll(original, word);
+           return this.text;
         } else {
             return "-1";
         }
@@ -63,8 +69,8 @@ public class FuncionesTexto {
  * @param word the word to remove
  * @return a string with the word removed if success or a string with "-1" otherwise
  */
-    public static String eraseWord(String text, String word) {
-        if (search(text, word)) {
+    public String eraseWord(String word) {
+        if (this.search( word)) {
             int pos = text.indexOf(word);
             char previo='a';
             try {
@@ -76,9 +82,9 @@ public class FuncionesTexto {
             if (Character.isWhitespace(previo)) {
                 word = " " + word;
             }
-            String frase = text.replaceAll(word, "");
+            this.text = text.replaceAll(word, "");
 
-            return frase;
+            return this.text;
         } else {
             return "-1";
         }
